@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.yl.entity">
+	<class name="EmpSalType" table="salType">
+		<id name="salTypeId">
+			<generator class="native"></generator>
+		</id>	
+		<property name="salTypeName"></property>
+		<property name="salTypeAccount" column="salTypeAmount"/>
+		<property name="salTypeRemark"></property>
+		<property name="salTypeDate"></property>
+		<property name="salTypeState"></property>
+		<property name="salTypePriority"></property>
+	</class>
+</hibernate-mapping>

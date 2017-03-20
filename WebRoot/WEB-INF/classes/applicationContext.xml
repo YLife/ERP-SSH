@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd ">
+	<!-- 配置session工厂 -->	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/erp"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="YL635901"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	</bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:com/yl/entity/</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 项目部分 -->
+	<bean id="proDao" class="com.yl.dao.impl.ProDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="proBiz" class="com.yl.biz.impl.ProBizImpl">
+		<property name="dao" ref="proDao"></property>
+	</bean>
+	<bean id="proPriorityDao" class="com.yl.dao.impl.ProPriorityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="proPriorityBiz" class="com.yl.biz.impl.ProPriorityBizImpl">
+		<property name="dao" ref="proPriorityDao"></property>
+	</bean>
+	<bean id="proStateDao" class="com.yl.dao.impl.ProStateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="proStateBiz" class="com.yl.biz.impl.ProStateBizImpl">
+		<property name="dao" ref="proStateDao"></property>
+	</bean>
+	<bean id="proAction" class="com.yl.action.ProAction" scope="prototype">
+		<property name="biz" ref="proBiz"></property>
+		<property name="pbiz" ref="proPriorityBiz"></property>
+		<property name="sbiz" ref="proStateBiz"></property>
+	</bean>
+	
+	<!-- 员工部分 -->
+	<bean id="empDao" class="com.yl.dao.impl.EmpDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="empBiz" class="com.yl.biz.impl.EmpBizImpl">
+		<property name="dao" ref="empDao"></property>
+	</bean>
+	<bean id="empSalDao" class="com.yl.dao.impl.EmpSalDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<bean id="empSalBiz" class="com.yl.biz.impl.EmpSalBizImpl">
+		<property name="dao" ref="empSalDao"></property>
+	</bean>
+	<bean id="empTypeDao" class="com.yl.dao.impl.EmpTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<bean id="empTypeBiz" class="com.yl.biz.impl.EmpTypeBizImpl">
+		<property name="dao" ref="empTypeDao"></property>
+	</bean>
+	<bean id="empJobDao" class="com.yl.dao.impl.EmpJobDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<bean id="empJobBiz" class="com.yl.biz.impl.EmpJobBizImpl">
+		<property name="dao" ref="empJobDao"></property>
+	</bean>
+	<bean id="empRoleDao" class="com.yl.dao.impl.EmpRoleDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<bean id="empRoleBiz" class="com.yl.biz.impl.EmpRoleBizImpl">
+		<property name="dao" ref="empRoleDao"></property>
+	</bean>
+	<bean id="empSalStateDao" class="com.yl.dao.impl.EmpSalStateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<bean id="empSalStateBiz" class="com.yl.biz.impl.EmpSalStateBizImpl">
+		<property name="dao" ref="empSalStateDao"></property>
+	</bean>
+	<bean id="empSalTypeDao" class="com.yl.dao.impl.EmpSalTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="empSalTypeBiz" class="com.yl.biz.impl.EmpSalTypeBizImpl">
+		<property name="dao" ref="empSalTypeDao"></property>
+	</bean>
+	<bean id="empAction" class="com.yl.action.EmpAction" scope="prototype">
+		<property name="ebiz" ref="empBiz"></property>
+		<property name="tbiz" ref="empTypeBiz"></property>
+		<property name="jbiz" ref="empJobBiz"></property>
+		<property name="rbiz" ref="empRoleBiz"></property>
+		<property name="sbiz" ref="empSalBiz"></property>
+		<property name="ssbiz" ref="empSalStateBiz"></property>
+		<property name="biz" ref="empSalTypeBiz"></property>
+	</bean>
+	
+	<!-- 客户部分 -->
+	<bean id="clientDao" class="com.yl.dao.impl.ClientDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="clientBiz" class="com.yl.biz.impl.ClientBizImpl">
+		<property name="dao" ref="clientDao"></property>
+	</bean>
+	<bean id="clientAction" class="com.yl.action.ClientAction" scope="prototype">
+		<property name="biz" ref="clientBiz"></property>
+	</bean>
+	
+	<!-- 配置事物管理 -->
+	<bean id="tm" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置事物通知 -->
+	<tx:advice id="advice" transaction-manager="tm">
+		<tx:attributes>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT"/>
+			<tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT"/>
+			<tx:method name="del*" propagation="REQUIRED" isolation="DEFAULT"/>
+			<tx:method name="remove*" propagation="REQUIRED" isolation="DEFAULT"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 织入通知 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.yl.biz.*.*(..))" id="serviceMethod"/>
+		<aop:advisor advice-ref="advice" pointcut-ref="serviceMethod"/>
+	</aop:config>
+</beans>

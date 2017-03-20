@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.yl.entity">
+	<class name="Pro">
+		<id name="proId">
+			<generator class="native"></generator>
+		</id>
+		<property name="proName"></property>
+		<property name="proAmount"></property>
+		<property name="devNum"></property>
+		<property name="createDate"></property>
+		<property name="startDate"></property>
+		<property name="endDate"></property>
+		<property name="proCost"></property>
+		<property name="remark"></property>
+		<many-to-one name="client" class="Client" column="clientId" cascade="none"></many-to-one>
+		<many-to-one name="emp" class="Emp" column="managerId" cascade="none"></many-to-one>
+		<many-to-one name="proPriority" class="ProPriority" column="priorityId" cascade="none"></many-to-one>
+		<many-to-one name="proState" class="ProState" column="proStateId" cascade="none"></many-to-one>
+	</class>
+</hibernate-mapping>

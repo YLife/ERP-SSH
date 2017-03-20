@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.yl.entity.EmpSal" table="sal">
+		<!-- <cache usage="read-write"/> -->
+		<id name="salId">
+			<generator class="native"></generator>
+		</id>
+		<property name="baseSal"></property>
+		<property name="bonus"></property>
+		<property name="fine"></property>
+		<property name="other"></property>
+		<property name="salType"></property>
+		<property name="salDate"></property>
+		<!-- <many-to-one name="emp" class="com.yl.entity.Emp" column="empId"></many-to-one> -->
+		<!-- <one-to-one name="emp" class="com.yl.entity.Emp" cascade="none"/> -->
+		<many-to-one name="emp" class="com.yl.entity.Emp" cascade="save-update" column="empId"></many-to-one>
+		<many-to-one name="salState" class="com.yl.entity.EmpSalState" column="salStateId"></many-to-one>
+	</class>
+</hibernate-mapping>

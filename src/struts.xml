@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	
+	<!-- 项目部分 -->
+	<package name="pro" extends="struts-default">
+		<action name="pro" class="proAction" method="pro">
+			<result name="pro">/WEB-INF/page/pro.jsp</result>
+		</action>
+		<action name="proData" class="proAction" method="proData">
+			<result name="proData">/WEB-INF/page/proData.jsp</result>
+		</action>
+		<action name="proEdit" class="proAction" method="proEdit">
+			<result name="proEdit">/WEB-INF/page/proEdit.jsp</result>
+		</action>
+		<action name="doProEdit" class="proAction" method="doProEdit">
+			<result name="doProEdit" type="redirectAction">pro</result>
+		</action>
+		<action name="proAdd" class="proAction" method="proAdd">
+			<result name="proAdd">/WEB-INF/page/proAdd.jsp</result>
+		</action>
+		<action name="doProAdd" class="proAction" method="doProAdd">
+			<result name="doProAdd" type="redirectAction">pro</result>
+		</action>
+		<action name="doProDel" class="proAction" method="doProDel">
+			<result name="doProDel" type="redirectAction">pro</result>
+		</action>
+	</package>
+
+	<!-- 员工部分 -->
+	<package name="emp" extends="struts-default">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		<action name="emp" class="empAction" method="queryEmps">
+			<result name="emp">/WEB-INF/page/emp.jsp</result>
+		</action>
+		<action name="empAdd" class="empAction" method="empAdd">
+			<result name="empAdd">/WEB-INF/page/empAdd.jsp</result>
+		</action>
+		<action name="doEmpAdd" class="empAction" method="doEmpAdd">
+			<result name="doEmpAdd" type="redirectAction">emp</result>
+		</action>
+		<action name="empEdit" class="empAction" method="empEdit">
+			<result name="empEdit" type="dispatcher">/WEB-INF/page/empEdit.jsp</result>
+		</action>
+		<action name="doEmpEdit" class="empAction" method="doEmpEdit">
+			<result name="doEmpEdit" type="redirectAction">emp</result>
+		</action>
+		<action name="empDel" class="empAction" method="empDel">
+			<result name="empDel" type="redirectAction">emp</result>
+		</action>
+		<action name="empJob" class="empAction" method="empJob">
+			<result name="empJob">/WEB-INF/page/empJob.jsp</result>
+		</action>
+		<action name="empJobData" class="empAction" method="empJobData">
+			<result name="empJobData">/WEB-INF/page/empJobData.jsp</result>
+		</action>
+		<action name="empJobDel" class="empAction" method="empJobDel">
+			<result name="empJobDel" type="redirectAction">empJob</result>
+		</action>
+		<action name="empWorkCase" class="empAction" method="empWorkCase">
+			<result name="empWorkCase">/WEB-INF/page/empWorkCase.jsp</result>
+		</action>
+		<action name="empWorkCaseData" class="empAction" method="empWorkCaseData">
+			<result name="empWorkCaseData">/WEB-INF/page/empWorkCaseData.jsp</result>
+		</action>
+		<action name="empSalSend" class="empAction" method="empSalSend">
+			<result name="empSalSend">/WEB-INF/page/empSalSend.jsp</result>
+		</action>
+		<action name="doEmpSalSend" class="empAction" method="doEmpSalSend">
+			<result name="doEmpSalSend" type="redirectAction">empWorkCase</result>
+		</action>
+		<action name="empData" class="empAction" method="empData">
+			<result name="empData">/WEB-INF/page/empData.jsp</result>
+		</action>
+		<action name="empRegister">
+			<result>/WEB-INF/page/empRegister.jsp</result>
+		</action>
+		<action name="doEmpRegister" class="empAction" method="doEmpRegister">
+			<result name="doEmpRegister" type="redirectAction">emp</result>
+		</action>
+		<action name="empJobAdd" >
+			<result>/WEB-INF/page/empJobAdd.jsp</result>
+		</action>
+		<action name="doEmpJobAdd" class="empAction" method="doEmpJobAdd">
+			<result name="doEmpJobAdd" type="redirectAction">emp</result>
+		</action>
+		<action name="empSalType" class="empAction" method="empSalType">
+			<result name="empSalType">/WEB-INF/page/empSalType.jsp</result>
+		</action>
+		<action name="empSalTypeEdit" class="empAction" method="empSalTypeEdit">
+			<result name="empSalTypeEdit">/WEB-INF/page/empSalTypeEdit.jsp</result>
+		</action>
+		<action name="doEmpSalTypeEdit" class="empAction" method="doEmpSalTypeEdit">
+			<result name="doEmpSalTypeEdit" type="redirectAction">empSalType</result>
+		</action>
+	</package>
+	
+	
+	
+	<!-- 客户部分 -->
+	<package name="client" extends="struts-default">
+		<action name="client" class="clientAction" method="client">
+			<result name="client">/WEB-INF/page/client.jsp</result>
+		</action>
+		<action name="clientData" class="clientAction" method="clientData">
+			<result name="clientData">/WEB-INF/page/clientData.jsp</result>
+		</action>
+		<action name="clientEdit" class="clientAction" method="clientEdit">
+			<result name="clientEdit">/WEB-INF/page/clientEdit.jsp</result>
+		</action>
+		<action name="doClientEdit" class="clientAction" method="doClientEdit">
+			<result name="doClientEdit" type="redirectAction">client</result>
+		</action>
+		<action name="clientAdd" class="clientAction">
+			<result>/WEB-INF/page/clientAdd.jsp</result>
+		</action>
+		<action name="doClientAdd" class="clientAction" method="doClientAdd">
+			<result name="doClientAdd" type="redirectAction">client</result>
+		</action>
+		<action name="doClientDel" class="clientAction" method="doClientDel">
+			<result name="doClientDel" type="redirectAction">client</result>
+		</action>
+	</package>
+	
+</struts>    
+
