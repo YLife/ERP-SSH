@@ -37,7 +37,8 @@ public class EmpDaoImpl extends DbUtil<Emp> implements EmpDao {
 
 	@Override
 	public List<Emp> queryAll() {
-		return null;
+		String hql = "from Emp";
+		return super.queryAll(hql);
 	}
 
 	@Override

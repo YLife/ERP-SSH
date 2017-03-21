@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+	<!-- 任务部分 -->
+	<package name="task" extends="struts-default">
+		<action name="task" class="taskAction" method="task">
+			<result name="task">/WEB-INF/page/task.jsp</result>
+		</action>
+		<action name="taskData" class="taskAction" method="taskData">
+			<result name="taskData">/WEB-INF/page/taskData.jsp</result>
+		</action>
+		<action name="taskEdit" class="taskAction" method="taskEdit">
+			<result name="taskEdit">/WEB-INF/page/taskEdit.jsp</result>
+		</action>
+		<action name="doTaskEdit" class="taskAction" method="doTaskEdit">
+			<result name="doTaskEdit" type="redirectAction">task</result>
+		</action>
+		<action name="taskAdd" class="taskAction" method="taskAdd">
+			<result name="taskAdd">/WEB-INF/page/taskAdd.jsp</result>
+		</action>
+		<action name="doTaskAdd" class="taskAction" method="doTaskAdd">
+			<result name="doTaskAdd" type="redirectAction">task</result>
+		</action>
+		<action name="doTaskDel" class="taskAction" method="doTaskDel">
+			<result name="doTaskDel" type="redirectAction">task</result>
+		</action>
+	</package>
 	
 	<!-- 项目部分 -->
 	<package name="pro" extends="struts-default">
@@ -24,6 +48,51 @@
 		</action>
 		<action name="doProDel" class="proAction" method="doProDel">
 			<result name="doProDel" type="redirectAction">pro</result>
+		</action>
+		<!-- 模块部分 -->
+		<action name="mod" class="modAction" method="mod">
+			<result name="mod">/WEB-INF/page/proMod.jsp</result>
+		</action>
+		<action name="modData" class="modAction" method="modData">
+			<result name="modData">/WEB-INF/page/proModData.jsp</result>
+		</action>
+		<action name="modEdit" class="modAction" method="modEdit">
+			<result name="modEdit">/WEB-INF/page/proModEdit.jsp</result>
+		</action>
+		<action name="doModEdit" class="modAction" method="doModEdit">
+			<result name="doModEdit" type="redirectAction">mod</result>
+		</action>
+		<action name="modAdd" class="modAction" method="modAdd">
+			<result name="modAdd">/WEB-INF/page/proModAdd.jsp</result>
+		</action>
+		<action name="doModAdd" class="modAction" method="doModAdd">
+			<result name="doModAdd" type="redirectAction">mod</result>
+		</action>
+		<action name="doModDel" class="modAction" method="doModDel">
+			<result name="doModDel" type="redirectAction">mod</result>
+		</action>
+		
+		<!-- 功能部分 -->
+		<action name="fun" class="funAction" method="fun">
+			<result name="fun">/WEB-INF/page/proFun.jsp</result>
+		</action>
+		<action name="funData" class="funAction" method="funData">
+			<result name="funData">/WEB-INF/page/proFunData.jsp</result>
+		</action>
+		<action name="funEdit" class="funAction" method="funEdit">
+			<result name="funEdit">/WEB-INF/page/proFunEdit.jsp</result>	
+		</action>
+		<action name="doFunEdit" class="funAction" method="doFunEdit">
+			<result name="doFunEdit" type="redirectAction">fun</result>
+		</action>
+		<action name="funAdd" class="funAction" method="funAdd">
+			<result name="funAdd">/WEB-INF/page/proFunAdd.jsp</result>
+		</action>
+		<action name="doFunAdd" class="funAction" method="doFunAdd">
+			<result name="doFunAdd" type="redirectAction">fun</result>
+		</action>
+		<action name="doFunDel" class="funAction" method="doFunDel">
+			<result name="doFunDel" type="redirectAction">fun</result>
 		</action>
 	</package>
 

@@ -36,7 +36,7 @@ public class ProDaoImpl extends DbUtil<Pro> implements ProDao {
 
 	@Override
 	public List<Pro> queryAll() {
-		String hql = "selelct p from Pro p";
+		String hql = "select p from Pro p";
 		return super.queryAll(hql);
 	}
 

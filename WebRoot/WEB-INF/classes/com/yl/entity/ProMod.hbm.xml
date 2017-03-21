@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.yl.entity">
+	<class name="ProMod" table="`mod`">
+		<id name="modId">
+			<generator class="native"></generator>
+		</id>
+		<property name="modName"></property>
+		<property name="modCreateDate"></property>
+		<property name="modEndDate"></property>
+		<property name="modRemark"></property>
+		<many-to-one name="pro" class="Pro" column="proId" cascade="none"></many-to-one>
+		<many-to-one name="emp" class="Emp" column="empId" cascade="none" ></many-to-one>
+		<many-to-one name="modPriority" class="ProModPriority" column="modPriorityId" cascade="none"></many-to-one>
+	</class>
+</hibernate-mapping>

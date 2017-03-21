@@ -108,9 +108,8 @@ body {
 		  </tr>
 		</table>
 		
-
-		<div id="div2">
 		<!--  任务系统开始    -->
+		<div id="div2">
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
             <td height="29">
@@ -128,17 +127,15 @@ body {
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu20" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="TaskAddServlet" target="mainFrame" class="left-font03" onClick="tupian('20');">创建任务</a></td>
+				  <td width="91%"><a href="taskAdd.action" target="mainFrame" class="left-font03" onClick="tupian('20');">创建任务</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu21" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="TaskServlet" target="mainFrame" class="left-font03" onClick="tupian('21');">任务消息查看</a></td>
+				  <td width="91%"><a href="task.action" target="mainFrame" class="left-font03" onClick="tupian('21');">任务消息查看</a></td>
 				</tr>
       </table>
       </div>
 		<!--  任务系统结束    -->
-
-		
 
 		<!--  消息系统开始    -->
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
@@ -175,8 +172,8 @@ body {
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu24" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="MessServlet" target="mainFrame" class="left-font03" onClick="tupian('24');">消息信息列表
-							</a></td>
+						<a href="MessServlet" target="mainFrame" class="left-font03" onClick="tupian('24');">消息信息列表</a>
+				  </td>
 				</tr>
       </table>
 		<!--  消息系统结束    -->
@@ -204,11 +201,11 @@ body {
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu5" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="ProModServlet" target="mainFrame" class="left-font03" onClick="tupian('5');">项目模块信息查看</a></td>
+				  <td width="91%"><a href="mod.action" target="mainFrame" class="left-font03" onClick="tupian('5');">项目模块信息查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu3" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="ProFunServlet" target="mainFrame" class="left-font03" onClick="tupian('3');">项目功能信息查看</a></td>
+				  <td width="91%"><a href="fun.action" target="mainFrame" class="left-font03" onClick="tupian('3');">项目功能信息查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu6" src="images/ico06.gif" width="8" height="12" /></td>

@@ -31,6 +31,22 @@
 		</property>
 	</bean>
 	
+	<!-- 任务部分 -->
+	<bean id="taskDao" class="com.yl.dao.impl.TaskDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="taskBiz" class="com.yl.biz.impl.TaskBizImpl">
+		<property name="dao" ref="taskDao"></property>
+	</bean>
+	<bean id="taskAction" class="com.yl.action.TaskAction">
+		<property name="tbiz" ref="taskBiz"></property>
+		<property name="pbiz" ref="proBiz"></property>
+		<property name="mbiz" ref="modBiz"></property>
+		<property name="fbiz" ref="funBiz"></property>
+		<property name="ebiz" ref="empBiz"></property>
+		<property name="ppbiz" ref="proPriorityBiz"></property>
+	</bean>
+	
 	<!-- 项目部分 -->
 	<bean id="proDao" class="com.yl.dao.impl.ProDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -54,6 +70,44 @@
 		<property name="biz" ref="proBiz"></property>
 		<property name="pbiz" ref="proPriorityBiz"></property>
 		<property name="sbiz" ref="proStateBiz"></property>
+	</bean>
+	
+	<!-- 模块部分 -->
+	<bean id="modDao" class="com.yl.dao.impl.ProModDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="modBiz" class="com.yl.biz.impl.ProModBizImpl">
+		<property name="dao" ref="modDao"></property>
+	</bean>
+	<bean id="modPriorityDao" class="com.yl.dao.impl.ProModPriorityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="modPriorityBiz" class="com.yl.biz.impl.ProModPriorityBizImpl">
+		<property name="dao" ref="modPriorityDao"></property>
+	</bean>
+	<bean id="modAction" class="com.yl.action.ProModAction" scope="prototype">
+		<property name="mbiz" ref="modBiz"></property>
+		<property name="pbiz" ref="modPriorityBiz"></property>
+		<property name="biz" ref="proBiz"></property>
+	</bean>
+	
+	<!-- 功能部分 -->
+	<bean id="funDao" class="com.yl.dao.impl.ProFunDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="funBiz" class="com.yl.biz.impl.ProFunBizImpl">
+		<property name="dao" ref="funDao"></property>
+	</bean>
+	<bean id="funPriorityDao" class="com.yl.dao.impl.ProFunPriorityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="funPriorityBiz" class="com.yl.biz.impl.ProFunPriorityBizImpl">
+		<property name="dao" ref="funPriorityDao"></property>
+	</bean>
+	<bean id="funAction" class="com.yl.action.ProFunAction" scope="prototype">
+		<property name="pbiz" ref="funPriorityBiz"></property>
+		<property name="fbiz" ref="funBiz"></property>
+		<property name="mbiz" ref="modBiz"></property>
 	</bean>
 	
 	<!-- 员工部分 -->
