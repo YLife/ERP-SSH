@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+	<!-- 登录部分 -->
+	<package name="login" extends="struts-default">
+		<action name="login">
+			<result>/login.jsp</result>
+		</action>
+		<action name="check" class="checkAction" method="check">
+			<result name="checked" type="redirectAction">index</result>
+			<result name="false" type="redirectAction">login</result>
+		</action>
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 验证码 -->
+	<package name="validate" extends="struts-default">
+		<action name="validate" class="validateAction"></action>
+	</package>
+	
 	<!-- 任务部分 -->
 	<package name="task" extends="struts-default">
 		<action name="task" class="taskAction" method="task">
@@ -23,6 +42,31 @@
 		</action>
 		<action name="doTaskDel" class="taskAction" method="doTaskDel">
 			<result name="doTaskDel" type="redirectAction">task</result>
+		</action>
+	</package>
+	
+	<!-- 消息部分 -->
+	<package name="mess" extends="struts-default">
+		<action name="mess" class="messAction" method="mess">
+			<result name="mess">/WEB-INF/page/mess.jsp</result>
+		</action>
+		<action name="messData" class="messAction" method="messData">
+			<result name="messData">/WEB-INF/page/messData.jsp</result>
+		</action>
+		<action name="messAdd" class="messAction" method="messAdd">
+			<result name="messAdd">/WEB-INF/page/messSend.jsp</result>
+		</action>
+		<action name="doMessAdd" class="messAction" method="doMessAdd">
+			<result name="doMessAdd" type="redirectAction">mess</result>
+		</action>
+		<action name="doMessDel" class="messAction" method="doMessDel">
+			<result name="doMessDel" type="redirectAction">mess</result>
+		</action>
+		<action name="messSend" class="messAction" method="messSend">
+			<result name="messSend">/WEB-INF/page/messSends.jsp</result>
+		</action>
+		<action name="messGet" class="messAction" method="messGet">
+			<result name="messGet">/WEB-INF/page/messGet.jsp</result>
 		</action>
 	</package>
 	
@@ -94,13 +138,15 @@
 		<action name="doFunDel" class="funAction" method="doFunDel">
 			<result name="doFunDel" type="redirectAction">fun</result>
 		</action>
+		
+		<!-- 项目上传和下载 -->
+		<action name="file" class="fileAction" method="file">
+			<result name="file">/WEB-INF/page/proUpload.jsp</result>
+		</action>
 	</package>
 
 	<!-- 员工部分 -->
 	<package name="emp" extends="struts-default">
-		<action name="index">
-			<result>/index.jsp</result>
-		</action>
 		<action name="emp" class="empAction" method="queryEmps">
 			<result name="emp">/WEB-INF/page/emp.jsp</result>
 		</action>
@@ -165,8 +211,6 @@
 			<result name="doEmpSalTypeEdit" type="redirectAction">empSalType</result>
 		</action>
 	</package>
-	
-	
 	
 	<!-- 客户部分 -->
 	<package name="client" extends="struts-default">

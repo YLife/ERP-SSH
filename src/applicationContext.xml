@@ -31,6 +31,14 @@
 		</property>
 	</bean>
 	
+	<!-- 登录部分 -->
+	<bean id="checkAction" class="com.yl.action.CheckAction" scope="prototype">
+		<property name="biz" ref="empBiz"></property>
+	</bean>
+	
+	<!-- 验证码部分 -->
+	<bean id="validateAction" class="com.yl.action.ValidateAction" scope="prototype"></bean>
+	
 	<!-- 任务部分 -->
 	<bean id="taskDao" class="com.yl.dao.impl.TaskDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -45,6 +53,18 @@
 		<property name="fbiz" ref="funBiz"></property>
 		<property name="ebiz" ref="empBiz"></property>
 		<property name="ppbiz" ref="proPriorityBiz"></property>
+	</bean>
+	
+	<!-- 消息部分 -->
+	<bean id="messDao" class="com.yl.dao.impl.MessDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="messBiz" class="com.yl.biz.impl.MessBizImpl">
+		<property name="dao" ref="messDao"></property>
+	</bean>
+	<bean id="messAction" class="com.yl.action.MessAction" scope="prototype">
+		<property name="mbiz" ref="messBiz"></property>
+		<property name="ebiz" ref="empBiz"></property>
 	</bean>
 	
 	<!-- 项目部分 -->
@@ -108,6 +128,18 @@
 		<property name="pbiz" ref="funPriorityBiz"></property>
 		<property name="fbiz" ref="funBiz"></property>
 		<property name="mbiz" ref="modBiz"></property>
+	</bean>
+	
+	<!-- 项目上传和下载 -->
+	<bean id="fileDao" class="com.yl.dao.impl.FileDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="fileBiz" class="com.yl.biz.impl.FileBizImpl">
+		<property name="dao" ref="fileDao"></property>
+	</bean>
+	<bean id="fileAction" class="com.yl.action.FileAction" scope="prototype">
+		<property name="fbiz" ref="fileBiz"></property>
+		<property name="pbiz" ref="proBiz"></property>
 	</bean>
 	
 	<!-- 员工部分 -->

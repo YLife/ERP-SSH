@@ -39,18 +39,14 @@ body {
 	    var nametu="xiaotu"+idt;
 	    var tp = document.getElementById(nametu);
 	    tp.src="images/ico05.gif";//图片ico04为白色的正方形
-	
-		
 		for(var i=1;i<30;i++)
 		{
-		  
 		  nametu2="xiaotu"+i;//修改
 		  if(i!=idt*1)
 		  {
 		    var tp2=document.getElementById('xiaotu'+i);
 			if(tp2!=undefined)
 		    {tp2.src="images/ico06.gif";}//图片ico06为白色的正方形
-	
 		  }
 		}
 	}
@@ -59,10 +55,7 @@ body {
 		var name2="img"+idstr;
 		var objectobj=document.all(name1);
 		var imgobj=document.all(name2);
-		
-		
 		//alert(imgobj);
-		
 		if(objectobj.style.display=="none"){
 			for(var i=1;i<10;i++){
 				var name3="img"+i;
@@ -85,8 +78,10 @@ body {
 	}
 </SCRIPT>
 </head>
-
 <body>
+<form action="">
+   <input type="hidden" value="${roleName }" id="role"/>
+</form>
 <table width="198" border="0" cellpadding="0" cellspacing="0" class="left-table01" id="">
   <tr>
     <TD>
@@ -97,7 +92,7 @@ body {
 				<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
 				  <tr>
 					<td width="25%" rowspan="2"><img src="images/ico02.gif" width="35" height="35" /></td>
-					<td width="75%" height="22" class="left-font01">您好 ， <span class="left-font02">${empName }</span></td>
+					<td width="75%" height="22" class="left-font01">您好 ， <span class="left-font02">${name }</span></td>
 				  </tr>
 				  <tr>
 					<td height="22" class="left-font01">
@@ -117,7 +112,8 @@ body {
 					<tr>
 						<td width="8%"><img name="img8" id="img8" src="images/ico04.gif" width="8" height="11" /></td>
 						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >任务管理</a></td>
+							<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >任务管理</a>
+						</td>
 					</tr>
 				</table>
 			</td>
@@ -156,28 +152,27 @@ body {
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu17" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="MessSendServlet" target="mainFrame" class="left-font03" onClick="tupian('17');">发送消息</a></td>
+						<a href="messAdd.action?name=${name }" target="mainFrame" class="left-font03" onClick="tupian('17');">发送消息</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu18" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-					<a href="MessGetServlet" target="mainFrame" class="left-font03" onClick="tupian('18');">收件消息查看</a></td>
+					<a href="messGet.action?name=${name }" target="mainFrame" class="left-font03" onClick="tupian('18');">收件消息查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu19" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="MessSendsServlet" target="mainFrame" class="left-font03" onClick="tupian('19');">发件消息查看
+						<a href="messSend.action?name=${name }" target="mainFrame" class="left-font03" onClick="tupian('19');">发件消息查看
 							</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu24" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="MessServlet" target="mainFrame" class="left-font03" onClick="tupian('24');">消息信息列表</a>
+						<a href="mess.action?name=${name }" target="mainFrame" class="left-font03" onClick="tupian('24');">消息信息列表</a>
 				  </td>
 				</tr>
       </table>
 		<!--  消息系统结束    -->
-
 
 		<!-- 项目系统开始  -->
         <TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
@@ -211,9 +206,8 @@ body {
 				  <td width="9%" height="20" ><img id="xiaotu6" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%"><a href="FileServlet" target="mainFrame" class="left-font03" onClick="tupian('6');">项目上传信息查看</a></td>
 				</tr>
-				
       </table>
-		<!-- 项目系统结束   -->
+	  <!-- 项目系统结束   -->
 
 	  <!--  客户系统开始   -->
 	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
@@ -226,15 +220,12 @@ body {
             </table></td>
           </tr>
       </table>
-	  
 	  <table id="subtree2" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
-        
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu7" src="images/ico06.gif" width="8" height="12" /></td>
           <td width="91%"><a href="client.action" target="mainFrame" class="left-font03" onClick="tupian('7');">客户信息查看</a></td>
         </tr>
       </table>
-
 	  <!--  客户系统结束    -->
 
 	  <!--  人员信息管理开始    -->
@@ -248,7 +239,6 @@ body {
             </table></td>
           </tr>
       </table>
-	  
 	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
         <tr>
           <td width="9%" height="20" ><img id="xiaotu8" src="images/ico06.gif" width="8" height="12" /></td>
@@ -263,7 +253,6 @@ body {
           <td width="91%"><a href="empWorkCase.action" target="mainFrame" class="left-font03" onClick="tupian('10');">员工工作情况查看</a></td>
         </tr>
       </table>
-	
 	  <!--  人员信息管理结束    -->
 
 	   <!--  考勤系统开始    -->
@@ -278,7 +267,6 @@ body {
             </table></td>
           </tr>
       </table>
-	  
 	  <table id="subtree4" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu11" src="images/ico06.gif" width="8" height="12" /></td>
@@ -304,7 +292,6 @@ body {
             </table></td>
           </tr>
       </table>
-
 	  <table id="subtree5" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
         <tr>
           <td width="9%" height="20"><img id="xiaotu13" src="images/ico06.gif" width="8" height="12" /></td>
@@ -318,10 +305,7 @@ body {
       </div>
 	  <!-- 管理系统结束 -->
 
-		
-
 	 <!-- 个人信息管理开始  -->
-
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
             <td height="29">
@@ -335,21 +319,18 @@ body {
 			</td>
           </tr>		  
         </TABLE>
-
 		<table id="subtree9" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" 
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="22" ><img id="xiaotu22" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="EmpDataServlet" target="mainFrame" class="left-font03" 
+				  <td width="91%"><a href="empData.action" target="mainFrame" class="left-font03" 
 						onClick="tupian('22');">个人信息查看</a></td>
 				</tr>
-				
       </table>
-		<!--  个人信息管理结束    -->
+	  <!--  个人信息管理结束    -->
 		</div>
 	  </TD>
   </tr>
-  
 </table>
 </body>
 </html>

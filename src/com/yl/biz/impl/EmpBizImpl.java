@@ -26,7 +26,6 @@ public class EmpBizImpl implements EmpBiz {
 
 	@Override
 	public void saveOrUpdate(Emp entity) {
-		System.out.println("---------------------------");
 		dao.saveOrUpdate(entity);
 	}
 
