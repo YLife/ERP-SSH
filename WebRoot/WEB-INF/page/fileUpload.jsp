@@ -34,11 +34,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
 		<tr align="center">
 			<td height="30" style="font-size:16px">
-				<select name="proId">
+				<select name="file.pro.proId">
 					<option>==选择项目==</option>
-					<c:forEach items="${list }" var="pro1">
-						<option value="${pro1.proId }">${pro1.proName }</option>
-					</c:forEach>
+					<s:iterator value="plist" var="p">
+						<option value="<s:property value="#p.proId "/>"><s:property value="#p.proName "/></option>
+					</s:iterator>
 				</select>
 			</td>
 		</tr>
@@ -51,8 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td width="20%" >待定</td>        	
 					</tr>
 					<tr class="TablePanel" align="center">
-						<td align="center"><input type="text" name="fileName"/></td>
-						<td align="center"><input name="file" type="file" class="button" id="xxx" size="20" /></td>	        	
+						<td align="center"><input type="text" name="iName"/></td>
+						<td align="center"><input name="upload" type="file" class="button" id="xxx" size="20" /></td>	        	
 					    <td align="center">待定</td>
 					</tr>
 			</table>								  

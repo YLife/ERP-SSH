@@ -139,9 +139,26 @@
 			<result name="doFunDel" type="redirectAction">fun</result>
 		</action>
 		
-		<!-- 项目上传和下载 -->
+		<!-- 文件上传 -->
 		<action name="file" class="fileAction" method="file">
 			<result name="file">/WEB-INF/page/proUpload.jsp</result>
+		</action>
+		<action name="fileUpload" class="fileAction" method="fileUpload">
+			<result name="fileUpload">/WEB-INF/page/fileUpload.jsp</result>
+		</action>
+		<action name="doFileUpload" class="fileAction" method="doFileUpload">
+			<result name="doFileUpload" type="redirectAction">file</result>
+		</action>
+		<action name="fileDel" class="fileAction" method="fileDel">
+			<result name="fileDel" type="redirectAction">file</result>
+		</action>
+		
+		<!-- 文件下载 -->
+		<action name="download" class="downloadAction" method="download">
+			<result name="download" type="stream">
+				<param name="inputStream">inputStream</param>
+				<param name="contentDisposition">attachment;fileName=${fileName};</param>
+			</result>
 		</action>
 	</package>
 

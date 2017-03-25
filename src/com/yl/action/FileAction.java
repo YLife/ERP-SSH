@@ -1,11 +1,11 @@
 package com.yl.action;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +15,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.yl.biz.FileBiz;
 import com.yl.biz.ProBiz;
+import com.yl.entity.Emp;
 import com.yl.entity.File;
 import com.yl.entity.Pro;
 import com.yl.vo.FileVo;
@@ -48,7 +49,12 @@ public class FileAction extends ActionSupport {
 		return "file";
 	}
 	
-	public String fileUpload() throws Exception{
+	public String fileUpload(){
+		plist = pbiz.findAll();
+		return "fileUpload";
+	}
+	
+	public String doFileUpload() throws Exception{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String path = request.getServletContext().getRealPath("/files");
 		InputStream in = new FileInputStream(upload);
@@ -61,11 +67,20 @@ public class FileAction extends ActionSupport {
 		}
 		out.close();
 		in.close();
- 		return "fileUpload";
+		Integer id = (Integer) ServletActionContext.getRequest().getSession().getAttribute("id");
+		Emp emp = new Emp();
+		Date date = new Date();
+		emp.setEmpId(id);
+		file.setUploadDate(date);
+		file.setEmp(emp);
+		file.setFileName(uploadFileName);
+		fbiz.saveOrUpdate(file);
+ 		return "doFileUpload";
 	}
 	
-	public String fileDownload(){
-		return null;
+	public String fileDel(){
+		fbiz.delMany(delid);
+		return "fileDel";
 	}
 
 	public Integer getJumpPage() {

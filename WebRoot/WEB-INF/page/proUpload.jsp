@@ -88,7 +88,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
             <tr>
               <td width="21"><img src="images/ico07.gif" width="20" height="18" /></td>
               <td width="538">文件名查询：
-                <input name="<s:property value="vo.fileName"/>" type="text" size="12" value="<s:property value="vo.fileName"/>"/>
+                <input name="vo.fileName" type="text" size="12" value="<s:property value="vo.fileName"/>"/>
                   <input name="Submit4" type="submit" class="right-button02" value="查询" /></td>
             </tr>
           </table></td>
@@ -122,11 +122,11 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					    <td height="20"><input type="checkbox" name="delid" value="<s:property value="#f.fileId"/>"/></td>
 	                    <td><s:property value="#f.fileName"/></td>
 						<td><s:property value="#f.emp.empName"/></td>
-	                    <td><s:date name="#f.fileDate" format="yyyy-MM-dd"/> </td>
+	                    <td><s:date name="#f.uploadDate" format="yyyy-MM-dd"/> </td>
 	                    <td><s:property value="#f.pro.proName"/></td>
 	                    <td>
 	                    	<s:if test="#f.fileName != null && #f.fileId > 3">
-		                    	<a href="fileDownload.action?fileName=<s:property value="#f.fileName"/>">下载</a>
+		                    	<a href="download.action?fileName=<s:property value="#f.fileName"/>">下载</a>
 	                    	</s:if>
 	                    	<s:if test="#f.fileName == null || #f.fileId <= 3">
 	                    		暂无文件可下载

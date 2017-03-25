@@ -204,7 +204,7 @@ body {
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu6" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="FileServlet" target="mainFrame" class="left-font03" onClick="tupian('6');">项目上传信息查看</a></td>
+				  <td width="91%"><a href="file.action" target="mainFrame" class="left-font03" onClick="tupian('6');">项目上传信息查看</a></td>
 				</tr>
       </table>
 	  <!-- 项目系统结束   -->

@@ -24,7 +24,7 @@ public class CheckAction {
 				code = (String) session.getAttribute("code");
 				if (code != null && code.equalsIgnoreCase(validate)) {
 					session.removeAttribute("code");
-					session.setAttribute("id", "id");
+					session.setAttribute("id", id);
 					session.setAttribute("name", emp.getEmpName());
 					session.setAttribute("roleName", emp.getEmpRole().getRoleName());
 					return "checked";

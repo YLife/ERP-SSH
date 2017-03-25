@@ -6,7 +6,7 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="fileName"></property>
-		<property name="fileDate" column="uploadDate"></property>
+		<property name="uploadDate"></property>
 		<many-to-one name="emp" class="Emp" column="empId" cascade="none"></many-to-one>
 		<many-to-one name="pro" class="Pro" column="proId" cascade="none"></many-to-one>
 	</class>

@@ -130,7 +130,7 @@
 		<property name="mbiz" ref="modBiz"></property>
 	</bean>
 	
-	<!-- 项目上传和下载 -->
+	<!-- 文件上传 -->
 	<bean id="fileDao" class="com.yl.dao.impl.FileDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -141,6 +141,9 @@
 		<property name="fbiz" ref="fileBiz"></property>
 		<property name="pbiz" ref="proBiz"></property>
 	</bean>
+	
+	<!-- 文件下载 -->
+	<bean id="downloadAction" class="com.yl.action.DownloadAction" scope="prototype"></bean>
 	
 	<!-- 员工部分 -->
 	<bean id="empDao" class="com.yl.dao.impl.EmpDaoImpl">
